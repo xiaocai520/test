@@ -1,0 +1,67 @@
+package Main;
+
+import java.util.ArrayList;
+import java.util.Scanner;
+
+import interface_1.IParams;
+import interface_1.Iparking;
+
+public class ParkingSystem implements Iparking{
+	public static int big=1;
+	public static int medium=1;
+	public static int small=0;
+	public ParkingSystem(Integer big,Integer medium,Integer small) {
+		this.big=big;
+		this.medium=medium;
+		this.small=small;
+	}
+	@Override
+	public boolean addCar(Integer carType) {
+		switch (carType) {
+		case 1: {
+			if(big>0) {
+				big--;
+				return true;
+			}
+			return false;
+		}
+		case 2: {
+			if(medium>0) {
+				medium--;
+				return true;
+			}
+			return false;
+		}
+		case 3: {
+			if(small>0) {
+				small--;
+				return true;
+			}
+			return false;
+		}
+		default:
+			throw new IllegalArgumentException("Unexpected value: " + carType);
+		}
+	}
+	public String[] parse(String input) {
+		
+		return null;
+	}
+	public void print() {
+		System.out.println();
+	}
+	static String str;
+	public static void main(String[] args) {
+		// TODO Auto-generated method stub
+		IParams params=Iparking.parse();
+		ParkingSystem ps=new ParkingSystem(params.getBig(),params.getMedium(),params.getSmall());
+		Scanner scan=new Scanner(System.in);
+		str=scan.next();
+		ArrayList<Integer> plan=params.getPlanParking();
+		for(int i=0;i<plan.size();i++) {
+			ps.addCar(plan.get(i));
+		}
+		ps.print();
+	}
+
+}

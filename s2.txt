@@ -1,0 +1,33 @@
+package interface1;
+
+import java.util.ArrayList;
+
+import Main.ParkingSystem;
+
+public class IparamsClass implements IParams {
+
+	@Override
+	public int getBig() {
+		// TODO Auto-generated method stub
+		return ParkingSystem.big;
+	}
+
+	@Override
+	public int getMedium() {
+		// TODO Auto-generated method stub
+		return ParkingSystem.medium;
+	}
+
+	@Override
+	public int getSmall() {
+		// TODO Auto-generated method stub
+		return ParkingSystem.small;
+	}
+
+	@Override
+	public ArrayList<Integer> getPlanParking() {
+		// TODO Auto-generated method stub
+		return null;
+	}
+
+}
